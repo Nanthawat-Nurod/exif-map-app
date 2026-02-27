@@ -1,8 +1,8 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { MapPin, X } from 'lucide-react';
 import { ImageUploader } from './components/ImageUploader';
 import { MapDisplay } from './components/MapDisplay';
-import { processImageFile, cleanupImageUrls } from './utils/exifUtils';
+import { processImageFile } from './utils/exifUtils';
 import type { ImageMetadata } from './types';
 import './App.css';
 
@@ -54,12 +54,7 @@ function App() {
     }
   }, [images]);
 
-  // Clean up object URLs on unmount
-  useEffect(() => {
-    return () => {
-      cleanupImageUrls(images);
-    };
-  }, [images]);
+  // Intentionally leaving URLs active for the session to prevent them from breaking when new images are added.
 
   return (
     <div className="app-container">

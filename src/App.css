@@ -285,8 +285,56 @@
     bottom: 0;
     right: 0;
     width: 100%;
-    max-height: 50vh;
-    border-radius: 24px 24px 0 0;
-    padding: 16px;
+    max-height: 40vh;
+    border-radius: 20px 20px 0 0;
+    padding: 12px 12px 20px 12px;
+    background: rgba(13, 17, 23, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--surface-border);
+    pointer-events: auto;
+    gap: 8px;
+    box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.5);
+  }
+
+  .header-panel {
+    padding: 8px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .app-subtitle {
+    display: none;
+  }
+
+  .upload-panel {
+    padding: 8px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .drop-zone {
+    padding: 16px 12px;
+    gap: 8px;
+  }
+
+  .upload-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .upload-text {
+    font-size: 14px;
+  }
+
+  .images-list-panel {
+    max-height: 120px;
+    padding: 8px;
   }
 }
