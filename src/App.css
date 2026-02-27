@@ -1,7 +1,8 @@
 .app-container {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100dvh;
+  /* Use dynamic viewport height for mobile browsers */
   display: flex;
   flex-direction: column;
 }
@@ -285,9 +286,11 @@
     bottom: 0;
     right: 0;
     width: 100%;
-    max-height: 40vh;
+    height: auto;
+    max-height: 55dvh;
     border-radius: 20px 20px 0 0;
-    padding: 12px 12px 20px 12px;
+    /* Add safe-area-inset for iPhone bottom bar */
+    padding: 12px 12px max(24px, env(safe-area-inset-bottom)) 12px;
     background: rgba(13, 17, 23, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
@@ -295,6 +298,8 @@
     pointer-events: auto;
     gap: 8px;
     box-shadow: 0 -10px 25px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
   }
 
   .header-panel {
@@ -302,6 +307,7 @@
     background: transparent;
     border: none;
     box-shadow: none;
+    flex-shrink: 0;
   }
 
   .app-title {
@@ -317,11 +323,16 @@
     background: transparent;
     border: none;
     box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
   }
 
   .drop-zone {
     padding: 16px 12px;
     gap: 8px;
+    flex-shrink: 0;
   }
 
   .upload-icon {
@@ -334,7 +345,17 @@
   }
 
   .images-list-panel {
-    max-height: 120px;
+    max-height: none;
+    flex: 1;
+    overflow-y: auto;
     padding: 8px;
+  }
+
+  .alerts-container {
+    bottom: auto;
+    top: 24px;
+    left: 24px;
+    right: 24px;
+    max-width: none;
   }
 }
