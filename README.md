@@ -1,73 +1,60 @@
-# React + TypeScript + Vite
+# ExifMapper: Serverless GPS Map Application 🗺️📍
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![ExifMapper UI Screenshot](public/vite.svg)<!-- Replace with actual screenshot later if you'd like -->
 
-Currently, two official plugins are available:
+A stunning, fast, and 100% serverless web application that extracts GPS metadata (EXIF) from your photos and instantly visualizes them on an interactive map. Everything is processed locally in your browser, ensuring maximum privacy!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Live Demo: [https://Nanthawat-Nurod.github.io/exif-map-app](https://Nanthawat-Nurod.github.io/exif-map-app)
 
-## React Compiler
+## Features ✨
+- **100% Serverless & Private**: No backend needed! EXIF data is parsed entirely in your browser using `exifr`. Your photos never leave your device.
+- **Drag & Drop Upload**: Upload multiple images simultaneously with a clean, modern interface.
+- **Interactive Mapping**: Automatically drops pins on a beautiful dark-themed `Leaflet` map based on the GPS coordinates embedded in your photos.
+- **Dynamic Previews**: Hover over or view map pins to see the actual image thumbnails right on the map.
+- **Modern Aesthetics**: Built with a sleek Glassmorphism UI, smooth micro-animations, and a responsive mobile-first design tailored for both desktop and smartphones.
+- **Smart Error Handling**: Gracefully alerts you if an uploaded photo lacks GPS metadata.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack 🛠️
+- **Framework**: React 19 + TypeScript 
+- **Build Tool**: Vite
+- **Mapping**: Leaflet + React-Leaflet (using CARTO Dark Matter basemap)
+- **EXIF Parsing**: Exifr
+- **Styling**: Vanilla CSS (Custom Glassmorphism + Responsive Design)
+- **Icons**: Lucide React
+- **Deployment**: GitHub Pages
 
-## Expanding the ESLint configuration
+## Development 💻
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+To run this project locally on your machine:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Nanthawat-Nurod/exif-map-app.git
+   cd exif-map-app
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## Deployment 🚀
+This project is configured to easily deploy to GitHub Pages.
+
+To push a new update to the live site, simply run:
+```bash
+npm run deploy
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+*Created by Nanthawat.*
